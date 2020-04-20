@@ -1,0 +1,170 @@
+
+.signup-modal {
+    background-image: url("../../Images/stadium.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block !important;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+    animation-name: movingbackground;
+    animation-duration: 0.8s;
+
+    @keyframes movingbackground {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    .modal-content {
+        color: orangered;
+        background-color: #fefefe;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 350px;
+        border-radius: 5px;
+        animation-name: movingSignup;
+        animation-duration: 0.8s;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        @keyframes movingSignup {
+            from {left: 100%}
+            to {left: 50%;}
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 5px;
+            top: 0px;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .signup-image {
+            margin: 0 auto;
+            width: 70px;
+            height: 70px;
+        }
+
+        .signup-box {
+            font-size: 14px;
+            font-family: 'robotomedium';
+            margin-bottom: 10px;
+
+            .error-message {
+                margin-bottom: 10px;
+            }
+
+            .signup-box-container {
+                display: -ms-flexbox;
+                display: flex;
+                width: 100%;
+                position: relative;
+
+                .signup-box-inputBox {
+                    padding: 4px;
+                    width: 100%;
+                    border: 1px solid #2a2aee;
+                    outline: none;
+                }
+
+                .signup-box-inputBox:focus {
+                    border: 2px solid #2a2aee;
+                    border-left: 1px solid #2a2aee;
+                }
+
+                .icon {
+                    font-size: 20px;
+                    padding: 6px;
+                    background: #2a2aee;
+                    color: white;
+                    min-width: 40px;
+                    text-align: center;
+                }
+
+                .check-icon {
+                    position: absolute;
+                    right: 5px;
+                    font-size: 18px;
+                    margin: 7px 2px;
+                    background: white;
+                    min-width: 10px;
+                    text-align: center;
+                    vertical-align: middle;
+                }
+
+                .green {
+                    color: green;
+                }
+
+                .red {
+                    color: red;
+                }
+            }
+
+            .signup-box-button {
+                width: 100%;
+                font-family: "robotobold";
+                background-color: #2a2aee;
+                color: white;
+                outline: none;
+                border: 1px solid #2a2aee;
+                border-radius: 5px;
+                padding: 5px;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+
+            .signup-box-button:disabled,
+            .signup-box-button[disabled]{
+                border: 1px solid #9898ff;
+                background-color: #9898ff;
+                cursor: default;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 575px) {
+    .signup-modal {
+        z-index: 2;
+        .modal-content{
+            padding: 10px 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .signup-modal {
+        .modal-content{
+            max-width: 300px;
+            width: 100%;
+            .signup-box{
+                .error-message{
+                    margin-bottom: 5px;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,163 @@
+// #d64242
+
+// background-image: linear-gradient(to bottom,#654a86,#534292);
+// background-color: #534292;
+
+/* CS FOR USER REGISTRATION FORM STARTS HERE */
+
+.player_information_form{padding: 10px 0 30px;}
+.player_basic_information {box-shadow: 0 6px 3px -9px rgba(0, 0, 0, 0.16), 0 1px 3px 0px rgba(0, 0, 0, 0.23);background: #fff;}
+.registration_fields{display: flex;flex-direction: column;padding: 10px 0 25px;}
+.registration_fields label{margin: 0;font-size: 14px;color: #e44545;padding-bottom: 5px;text-align: left;font-family: 'robotomedium';}
+.registration_fields .u-full-width{border: none;border-bottom: 1px solid #ccc;width: 100%;margin-bottom: 5px;font-size: 14px;text-transform: capitalize;}
+.registration_fields .u-full-width:focus{box-shadow: none;outline: none;transition: transform .5s ease;}
+
+/* Css for Steps Butons Starts here */
+
+.player_information_form .NEXT-btn{background: #e44545;box-shadow: none;color: #fff;border: 1px solid #e44545;width: 200px;font-size: 16px;height: 40px;cursor: pointer;transition: .5s all;margin: 30px 0;margin-right: 30px;padding: 0;}
+.player_information_form .NEXT-btn:hover {background: #fff;color:#e44545 ;border: 1px solid #e44545;}
+.player_information_form button:focus{box-shadow: none;outline: none;}
+.customDropDownArrow{position: relative;}
+
+/* Css for Steps Butons Starts here */
+
+.registration_fields select {-webkit-appearance: none;-moz-appearance: none;-ms-appearance: none;appearance: none;outline: 0;box-shadow: none;border: 0 !important;background: #fff;background-image: none; border-bottom: 1px solid #ccc !important;border-radius: 0;padding: 0;text-align: center;font-size: 14px;}
+.registration_fields select:focus{box-shadow: none;border-bottom: 1px solid #e44545 !important;}
+
+/* Remove IE arrow */
+
+.registration_fields select::-ms-expand {display: none;}
+.customDropDownArrow span{position: absolute;right: 10px;top: 50%; transform: translate(-50%,-50%) rotate(45deg);}
+.customDropDownArrow span i{border: solid #e44545;border-width: 0 1px 1px 0;display: inline-block;padding: 3px;}
+
+.clubsBtn{width: auto !important;padding: 0 10px !important;margin-bottom: 0 !important;font-family: 'robotomedium';padding-left: 0 !important;color: #e44545;text-decoration: underline;padding-top: 15px !important;cursor: pointer;}
+
+.rangeLabel{position: absolute;right: -10px;bottom: 5px;color: #e44545;font-family: 'robotobold';}  
+.player_basic_information-Range .registration_fields label{padding-bottom: 15px;}
+.css-yvszuv-Slider{cursor: pointer;width: 100% !important;height: 3px !important;}
+.css-3g5hux-Slider{background: #e44545 !important;}
+.css-2y8pfi-Slider:after{width:15px !important;height:15px !important;box-shadow:0px 1px 2px 0px rgba(0,0,0,.5), 1px 0px 3px rgba(0,0,0,.5) !important;top:-7px !important;}
+
+/* CSS FOR HEADER LABEL ICON STARTS HERE */
+
+.verticle_line{padding-top:20px;display:flex;align-items:center;border-top:3px solid #e44545;}
+.hero{background-color:#e44545;position:relative;height:37px;width:7px;}
+.triangle-right{position:relative;}
+.triangle-right::after{width:0;width:0;height:0;border-top:6px solid transparent;border-left:7px solid #e44545;border-bottom:6px solid transparent;position:absolute;transform:translate(-50%, -50%);content:"";right:-10px;}
+.first-application-data{padding-bottom:3px;padding-left:20px;font-size:18px;text-transform:capitalize;color:#90133c;font-family: 'robotobold';}
+.player_information_box{padding:0px 30px 30px;}
+
+/* CSS FOR HEADER LABEL ICON ENDS HERE */
+
+/* CSS FOR DATE PICKER BUTTON */
+
+.registration_fieldsDatePicker button {background: transparent; margin: 0;width: 0;height: 0;}
+
+/* CSS FOR DATE PICKER BUTTON */
+
+/* CSS FOR RANGE SLIDER STARTS HERE */
+
+.rangeslider-horizontal {height: 6px !important;border-radius: 10px;}
+.rangeslider-horizontal .rangeslider__handle:after{content: none !important;}
+.rangeslider-horizontal .rangeslider__handle{width:20px !important;height:20px !important;outline:none !important;}
+.rangeslider{margin:0 !important;}
+.slider .value{position:absolute !important;left:50% !important;top:30%;transform:translate(-50%,-50%);color:#e44545;font-weight:700;}
+
+/* CSS FOR RANGE SLIDER ENDS HERE */
+
+/* CSS FOR STEPS SLIDES TOP STARTS HERE */
+
+.Multistep--stepsBarUl{display:flex;padding:20px 0;margin: 0;}
+.Multistep--stepsBarList{text-align:center;width:100%;position:relative;max-height: 25px;}
+.multistep--Innerbox{width:25px;height:25px;border:1px solid #e44545;padding:0;font-size:12px;border-radius:10%;display:flex;align-items:center;justify-content:center;z-index:1;background:#fff;}
+.multistep--box{display:flex;justify-content:center;align-items:center;}
+li.Multistep--stepsBarList:not(:first-child)::after{content:"";position:absolute;width:100%;height:2px;background:#ccc;left:0%;top:50%;transform:translate(-50%, -50%);}
+li.Multistep--stepsBarList.isvisited:not(:first-child)::after{background:#e44545;}
+.Multistep--stepsBarList.isvisited .multistep--Innerbox{border:2px solid #e44545;color:#fff;background:#e44545;cursor: pointer;}
+
+/* CSS FOR STEPS SLIDES TOP ENDS HERE */
+
+/* CSS FOR FINAL REVIEW PAGE STARTS HERE */
+
+.reviewData--header{font-size:14px;color:#0095da;text-transform: capitalize;font-family: 'robotomedium';margin: 0;padding-bottom: 10px;}
+.reviewData--value{font-size:14px;color:#000;font-family: 'robotomedium';text-transform:capitalize;margin: 0;padding-bottom: 10px;}
+h1.FinalReviewHeader::after{content:"";position:absolute;width:200px;height:2px;background:red;left:0;bottom:-9px;}
+.reviewData{padding:10px 0;}
+.FinalReviewHeader{font-size:20px;margin:0; position:relative;padding:30px 0 0;font-family: 'robotobold';}
+.FinalReviewHeaderRow:not(:last-child){background-image:linear-gradient(to right, black 33%, rgba(255,255,255,0) 0%);background-position:bottom;background-size:13px 1px;background-repeat:repeat-x;}
+.FinalReviewHeader{padding:20px 0 0;}
+.row.FinalReviewHeaderRow{padding:20px 0;}
+.FinalReviewHeaderPT{padding-top:10px;}
+.FinalReviewHeaderRowBT{padding-bottom: 0 !important;}
+/* CSS FOR FINAL REVIEW PAGE STARTS HERE */
+
+/* CS FOR USER REGISTRATION FORM ENDS HERE */
+
+.registration_fields .error {margin-left: 0;font-size: 12px;color: red;position: absolute;bottom: -3px;}
+.registration_fields .u-full-width.RedmarkInput{border-bottom: 1px solid red;}
+.registration_fields .custom-select.RedmarkInput{border-bottom: 1px solid red !important;}
+.clubCurrentTable{ padding: 20px 0 0px;}
+.clubPrevRow{display: flex;align-items: flex-end;}
+.PrevClubData .reviewData {padding: 2px 0;}
+.FinalReviewHeaderClubRow{ padding-bottom: 20px;}
+.noteBox{font-size: 12px;color: red;font-weight: 600;padding-left: 15px;}
+.inputError {position: absolute;bottom: 0px;color: #fff;background: #d64242;font-size: 10px;border-radius: 5px;padding: 3px 9px;transition: .3s all;}
+.browser-default.custom-select{height: auto !important;}
+.customDropDownArrow .inputError{bottom: -30px;transition: .3s all;}
+.registration_fields textarea{font-size: 14px;}
+.registration_fields_error{padding: 10px 0 25px;}
+.registration_fields_error label{margin-bottom: 15px;}
+.clubPrevRow_updated{position: relative;}
+.row_CurrentClubBox{box-shadow: 0 6px 3px -9px rgba(0, 0, 0, 0.16), 0 1px 3px 0px rgba(0, 0, 0, 0.23);margin: 15px 0px;padding: 5px;}
+.reviewData .rangeslider , .registration_fields .rangeslider {margin: 0 !important;background: #e6e5ea !important;}
+.rangeslider-horizontal .rangeslider__fill{background-image: linear-gradient(to right, #b94a48 30%, #f1c40f 45%, #4bc67d 99%) !important;}
+.reviewData .slider{margin: 20px 0;}
+.mandatoryText{color: #e44545;font-size: 12px;text-align: right;padding: 10px 0;font-family: 'robotomedium';}
+.rangeslider-horizontal .rangeslider__handle{background: url('../../../Images/soccer.svg');width: 100px;height: 100px;}
+.registration_Wrapper{background: #f2f3f8;padding-top: 5rem;min-height: 100vh;}
+.registration_fieldsDatePicker .react-datepicker__current-month,.registration_fieldsDatePicker .react-datepicker-time__header, .registration_fieldsDatePicker .react-datepicker-year-header{display: none;}
+.registration_fieldsDatePicker .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle::before , .registration_fieldsDatePicker .react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle , .registration_fieldsDatePicker  .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle{border: none;}
+.registration_fieldsDatePicker .react-datepicker__header{background-color: #ffffff;border-bottom: none;}
+.registration_fieldsDatePicker .react-datepicker select{border-bottom: none !important;}
+.registration_fieldsDatePicker .react-datepicker{box-shadow: 2px 5px 10px 2px rgba(0,0,0,0.1), -4px -3px 20px rgba(0,0,0,0.1);padding: 0.5rem;border: none;}
+
+
+/* CSS FOR CUSTOM TOAST NOTIFICATION STARTS HERE  */
+.toast-success {background-color: #51A351 !important;}
+.toast-warning{background-color: #FFCF06 !important;}
+.toast-error{background-color: red !important}
+/* CSS FOR CUSTOM TOAST NOTIFICATION ENDS HERE  */
+
+.loader-resto {position: fixed;height: 100%;width: 100%;left: 50%;top: 50%;transform: translate(-50%, -50%);transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s;background-color: rgba(0, 0, 0, 0.3);z-index: 9999;}
+.loader{left: 50%;position: fixed;top: 50%;transform: translate(-50%,-50%);}
+.previousClub .fa-trash:before{position: absolute;right: 20px;top: 10px;}
+
+
+.registration_fields input::-webkit-outer-spin-button,
+.registration_fields input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.registration_fields  input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.player_information_form_review{padding-top: 5rem;}
+
+.ImagePreview{width: 100px;border: 1px solid;height: 100px;}
+
+@media only screen and (max-width:767px) {
+    .player_information_box .col-md-1{display: none;}
+    .player_information_box .col-md-5{width: 50%;}
+}
+
+@media only screen and (max-width:575px) {
+  .basicSubmitDetails{display: flex;justify-content: center;}
+  .player_information_form .NEXT-btn{max-width: 200px;width: 100%;font-size: 14px;height: 35px;margin-right: 5px;}
+}
+
+@media only screen and (max-width:480px) {
+    .player_information_box .col-md-5{width: 100%;}
+}

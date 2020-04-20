@@ -1,0 +1,39 @@
+{
+    "parser": "babel-eslint",
+    "extends": [
+        "plugin:react/recommended",
+        "standard"
+   ],
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "plugins": [
+        "react"
+    ],
+    
+    "settings": {
+        "react": {
+        "createClass": "createReactClass",
+        "pragma": "React",
+        "version": "detect"
+        },
+        "propWrapperFunctions": [
+            "forbidExtraProps",
+            {"property": "freeze", "object": "Object"},
+            {"property": "myFavoriteWrapper"}
+        ],
+        "linkComponents": [
+        "Hyperlink",
+        {"name": "Link", "linkAttribute": "to"}
+        ]
+    },
+      
+    "parserOptions":{
+        "ecmaVersion": 2018,
+        "ecmaFeatures":{
+            "jsx": true
+        },
+        "sourceType": "module"
+    }
+}

@@ -1,0 +1,358 @@
+.Header-wrapper {
+  color: white;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  display: flex;
+  top: 0;
+  background: #001b4a;
+  font-size: 20px;
+  padding: 10px;
+  z-index: 9999;
+  animation-name: movingHeader;
+  animation-duration: 0.8s;
+  @keyframes movingHeader {
+    from {
+      top: -100px;
+    }
+    to {
+      top: 0;
+    }
+  }
+  .authentication {
+    position: relative;
+    top: 10px;
+    .header-button {
+      background-color: #00000000;
+      color: white;
+      border: 1px solid white;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+    .header-button:active {
+      color: orangered;
+      transform: translateY(1px);
+    }
+  }
+  .userProfile {
+    font-size: 38px !important;
+    color: white;
+  }
+  .displayName {
+    font-size: 16px;
+  }
+  .UserName {
+    color: white;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+  }
+  .logo {
+    font-size: 48px;
+    color: white;
+    position: absolute;
+    top: 0;
+  }
+}
+
+/* CSS FOR HEADER*/
+ul,
+p {
+  margin: 0 !important;
+}
+a {
+  text-decoration: none !important;
+}
+li {
+  list-style-type: none;
+}
+.headerFixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  nav {
+    background-color: #001b4a;
+    flex-wrap: initial !important;
+    .sidebarBtn {
+      background: transparent;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      position: absolute;
+      right: 20px;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      display: none;
+      .sidebarBtnTop {
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+      }
+      .sidebarBtnMid {
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        top: 7px;
+      }
+      .sidebarBtnBot {
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background: #fff;
+        top: 14px;
+      }
+    }
+    .overlay {
+      z-index: 1;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease-out 0s, visibility 0.3s ease-out 0s;
+      background-color: rgba(88, 72, 72, 0.3);
+    }
+    .HeaderSideBarUpdated {
+      display: none !important;
+    }
+    .HeaderSideBar {
+      width: 100%;
+      text-align: right;
+      ul {
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 10px;
+        a {
+          font-size: 14px;
+          color: #fff;
+        }
+        .HeaderList {
+          color: #fff;
+          font-size: 14px;
+          .HeaderList--userInfo {
+            display: flex;
+            align-items: center;
+          }
+
+          .UserName {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            font-family: "robotomedium";
+            cursor: pointer;
+            .loginUserBox {
+              position: relative;
+              .arrowDown {
+                position: absolute;
+                right: -13px;
+              }
+
+              .arrowDown .fa {
+                color: #fff;
+                transform: rotate(90deg);
+              }
+
+              .arrowUp {
+                position: absolute;
+                right: -13px;
+              }
+
+              .arrowUp .fa {
+                color: #fff;
+                transform: rotate(-90deg);
+              }
+
+              .headerDropdown {
+                position: absolute;
+                width: 180px;
+                left: -60px;
+                top: 150px;
+                background: #001b4a;
+                transform: translate(-50%, -50%);
+                box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.1);
+                color: #fff;
+                text-align: left;
+                padding: 10px;
+                text-transform: capitalize;
+
+                .headerDropdown--user {
+                  padding-bottom: 9px;
+                  border-bottom: 1px solid #fff;
+                }
+                .headerDropdown--profile {
+                  padding-top: 14px !important;
+                }
+                .headerDropdown--logs {
+                  padding: 2px 0;
+                }
+                .headerDropdown--links {
+                  font-size: 14px !important;
+                }
+              }
+
+              .headerDropdown::before {
+                content: "";
+                position: absolute;
+                right: 2px;
+                top: -5px;
+                background: #001b4a;
+                width: 10px;
+                height: 10px;
+                transform: rotate(45deg);
+              }
+            }
+            .fa-user-circle:before {
+              font-size: 25px;
+              padding-right: 10px;
+            }
+            a {
+              color: #fff;
+              font-size: 16px;
+              font-family: "robotomedium";
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      .HeaderLoginList {
+        padding-right: 0;
+      }
+
+      li {
+        padding: 0 10px;
+        .loginUserBox {
+          color: #001b4a;
+          text-transform: uppercase;
+          background: #fff;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          font-size: 16px;
+        }
+        p {
+          a,
+          .logoutBtn,
+          .displayName {
+            margin: 0;
+            color: #fff;
+            font-size: 16px;
+            font-family: "robotomedium";
+            text-decoration: none !important;
+          }
+          .logoutBtn {
+            cursor: pointer;
+            .fa-sign-out:before {
+              content: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 575px) {
+  .headerFixed {
+    nav {
+      .sidebarBtn {
+        display: block !important;
+        z-index: 3;
+        transform: translate3d(-15px, 0px, 0px) !important;
+      }
+      .sidebarBtnTrue {
+        transform: translate3d(-165px, 0px, 0px) !important;
+        transition: all 0.5s ease 0s;
+        -webkit-transition: all 0.5s ease 0s;
+        .sidebarBtnTop {
+          transform: rotate(45deg);
+          top: 5px;
+          left: 0;
+          //   background: #000 !important;
+        }
+        .sidebarBtnMid {
+          display: none;
+          //   background: #000 !important;
+        }
+        .sidebarBtnBot {
+          transform: rotate(-45deg);
+          top: 5px;
+          left: 0;
+          //   background: #000 !important;
+        }
+      }
+      .HeaderSideBarRight {
+        transform: translate3d(0%, 0px, 0px) !important;
+        transition: all 0.5s ease 0s;
+        -webkit-transition: all 0.5s ease 0s;
+      }
+      .HeaderSideBarUpdated {
+        transform: translate3d(100%, 0px, 0px);
+        visibility: visible;
+        transition: all 0.5s ease 0s;
+        -webkit-transition: all 0.5s ease 0s;
+        z-index: 2;
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        overflow-y: auto;
+        background: #001b4a;
+        right: 0px;
+        max-width: 220px;
+        width: 100%;
+        padding: 0 10px;
+        box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 4px;
+        text-align: left;
+        display: block !important;
+      }
+      .HeaderSideBar {
+        display: none;
+
+        ul {
+          flex-direction: column;
+          padding-top: 70px;
+          .HeaderLoginList {
+            order: 1;
+          }
+          .HeaderListHome {
+            order: 2;
+          }
+          .HeaderListLogout {
+            order: 3;
+          }
+          li {
+            padding-bottom: 10px !important;
+            .UserName {
+              font-size: 14px !important;
+            }
+            p {
+              text-align: left;
+              a,
+              .displayName {
+                font-size: 14px !important;
+              }
+              .logoutBtn {
+                display: flex;
+                align-items: center;
+                font-size: 14px !important;
+                .fa-sign-out:before {
+                  content: "\f08b";
+                  font-size: 26px;
+                  padding-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
