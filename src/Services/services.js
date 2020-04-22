@@ -32,8 +32,8 @@ export const register = (newUser) => {
 export const login = (user) => {
   return axios
     .post('User/login', {
-      UserName: user.UserName,
-      Password: user.Password,
+      UserName: user.username,
+      Password: user.password,
       sso: user.sso ? user.sso : undefined
     })
     .then((res) => {

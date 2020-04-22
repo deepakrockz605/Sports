@@ -37,7 +37,7 @@ class Login extends PureComponent {
   }
 
   onChange () {
-    return true;
+    return true
   }
 
   onSubmitClick = (event) => {

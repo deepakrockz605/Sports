@@ -1,0 +1,404 @@
+.form-group,
+p,
+label {
+  margin: 0 !important;
+}
+
+.HomeLogin--Wrapper {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  .HomeLogin--carausal {
+    width: 60%;
+    height: 100%;
+    // transform: translateX(0);
+    // transition: 0.3s all;
+    .owl-theme {
+      .item {
+        background: linear-gradient(145deg, #321c8e 1%, #0cfb9c 100%);
+        height: 100vh;
+        width: 100%;
+        .sliderContent {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          .sliderHeader {
+            font-size: 24px;
+            color: #fff;
+            font-weight: 700;
+            padding-bottom: 10px;
+          }
+          .sliderInfo {
+            font-size: 14px;
+            color: #fff;
+            line-height: 16px;
+          }
+        }
+      }
+      .owl-nav.disabled + .owl-dots {
+        z-index: 99999;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .owl-dots .owl-dot:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      .owl-dots .owl-dot span {
+        width: 6px;
+        height: 6px;
+        margin: 5px 4px;
+      }
+      .owl-dots .owl-dot:hover span {
+        background: #d6d6d6;
+      }
+      .owl-dots .owl-dot.active span {
+        background: #869791;
+        width: 10px;
+      }
+    }
+  }
+  .HomeLogin--box {
+    width: 40%;
+    padding: 30px;
+    height: 100%;
+    // transform: translateX(0);
+    // transition: 0.3s all;
+    display: table;
+
+    .Home--Login {
+      display: table-cell;
+      vertical-align: middle;
+      .subHeader {
+        text-align: center;
+        font-size: 30px;
+        line-height: 35px;
+        padding-bottom: 30px;
+        font-family: "robotobold";
+        color: #04b998;
+        .subHeaderSpan {
+          color: #000;
+          font-size: 20px;
+        }
+        .subHeaderBlock {
+          display: block;
+          font-size: 40px;
+        }
+      }
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+        .form-group {
+          margin-bottom: 10px !important;
+        }
+        .note {
+          color: gray;
+          margin: 8px 0;
+        }
+
+        .error {
+          color: #e23b3b;
+          font-size: 12px;
+          margin-top: 3px;
+        }
+        .userLable {
+          font-size: 12px;
+          color: #ccc;
+        }
+        .userLableInput {
+          border: none !important;
+          border-bottom: 1px solid #ccc !important;
+          border-radius: 0 !important;
+          height: auto !important;
+          padding: 0 !important;
+          font-size: 14px !important;
+          background: transparent;
+          box-shadow: none !important;
+          outline: none !important;
+        }
+        .submitBtn {
+          background: #04b998;
+          padding: 5px 30px;
+          border-radius: 20px;
+          box-shadow: none;
+          outline: none;
+          border: none;
+          display: block;
+          margin: 30px auto;
+          font-size: 14px;
+          color: #fff;
+          font-family: "robotobold";
+          letter-spacing: 2px;
+        }
+      }
+      .orData {
+        display: flex;
+        justify-content: center;
+        color: #000;
+        font-size: 16px;
+        position: relative;
+      }
+
+      .orData::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 1px;
+        background: #ccc;
+        left: 50%;
+        top: 50%;
+        transform: translate(-120%, -50%);
+      }
+
+      .orData::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 1px;
+        background: #ccc;
+        right: 50%;
+        top: 50%;
+        transform: translate(120%, -50%);
+      }
+      .SocialIcons--header {
+        color: #04b998;
+        font-size: 14px;
+        text-align: center;
+        padding: 20px 0 10px;
+        font-family: "robotomedium";
+      }
+      .newHere {
+        text-align: center;
+        color: #000;
+        font-size: 14px;
+        font-family: "robotomedium";
+        .createAccount {
+          text-decoration: underline;
+          cursor: pointer;
+          color: #04b998;
+        }
+      }
+    }
+    .Home--SignUp {
+      padding: 0px !important;
+      .subHeader {
+        padding-bottom: 10px !important;
+      }
+      form {
+        .form-group {
+          margin-bottom: 0px !important ;
+          position: relative;
+          .check-icon {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding-top: 10px;
+          }
+          .red {
+            color: red;
+          }
+          .green {
+            color: green;
+          }
+        }
+        .submitBtn {
+          margin: 15px auto 10px;
+        }
+      }
+    }
+  }
+}
+.HomeLogin--RowWrapper {
+  .HomeLogin--carausal {
+    // transform: translateX(66%);
+    transition: 0.3s all;
+  }
+  .HomeLogin--box {
+    // transform: translateX(-152%);
+    transition: 0.3s all;
+  }
+}
+
+.socioIcon {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none !important;
+  width: 25%;
+  border: 1px solid #000;
+  margin: 0 5px;
+  border-radius: 5px;
+}
+.socialMedia--box {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0px 0 20px;
+  button.google.socioIcon {
+    background: #db4a39;
+    border: 1px solid #db4a39;
+  }
+
+  button.facebook.socioIcon {
+    background: rgb(59, 89, 152);
+    border: 1px solid rgb(59, 89, 152);
+  }
+
+  button.twitter.socioIcon {
+    background: rgb(0, 172, 237);
+    border: 1px solid rgb(0, 172, 237);
+  }
+
+  button.instagram.socioIcon {
+    background: #f09433;
+    background: -moz-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: -webkit-linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    background: linear-gradient(
+      45deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    border: 1px solid #f09433;
+  }
+  .socioIcon .fa {
+    color: #fff;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .HomeLogin--Wrapper {
+    .HomeLogin--box {
+      .Home--Login {
+        .subHeader {
+          line-height: 26px;
+          .subHeaderSpan {
+            font-size: 18px;
+          }
+          .subHeaderBlock {
+            font-size: 30px;
+          }
+        }
+        form {
+          .userLableInput {
+            height: 20px !important;
+          }
+          .error {
+            margin-top: 1px;
+          }
+          .submitBtn {
+            margin: 20px auto;
+          }
+        }
+      }
+      .Home--SignUp {
+        form {
+          .submitBtn {
+            margin: 12px auto 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .HomeLogin--Wrapper {
+    .HomeLogin--box,
+    .HomeLogin--carausal {
+      width: 50%;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .HomeLogin--Wrapper {
+    .HomeLogin--box {
+      .Home--Login {
+        form {
+          .submitBtn {
+            padding: 5px 20px;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .HomeLogin--Wrapper {
+    .HomeLogin--carausal {
+      display: none;
+    }
+    .HomeLogin--box {
+      width: 100%;
+      background: linear-gradient(60deg, #070219 100%, #037145 100%);
+      .Home--Login {
+        .subHeader {
+          .subHeaderSpan {
+            color: #f7e726eb;
+          }
+          .subHeaderBlock {
+            color: #fff;
+          }
+        }
+        form {
+          max-width: 300px;
+          .error{
+            font-weight: 600;
+            color: #ec5555;
+          }
+          .submitBtn {
+            border: 1px solid #04b998;
+            color: #04b998;
+            background: #fff;
+          }
+          .userLable{color: #fff;}
+          .userLableInput {
+            color: #fff;
+          }
+        }
+        .SocialIcons {
+          .socialMedia--box {
+            max-width: 300px;
+          }
+        }
+        .newHere {
+          color: #f7e726eb;
+          .createAccount {
+            color: #fff;
+          }
+        }
+        .orData,
+        .SocialIcons--header {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

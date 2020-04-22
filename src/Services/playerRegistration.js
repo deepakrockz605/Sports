@@ -112,7 +112,8 @@ export const getUserSession = (userLog) => {
       return res.data
     })
     .catch((err) => {
+      console.log(err)
       toastr.error('Session Expired !!!')
-      localStorage.clear();
+      localStorage.clear()
     })
 }

@@ -155,7 +155,7 @@ h1.FinalReviewHeader::after{content:"";position:absolute;width:200px;height:2px;
 
 @media only screen and (max-width:575px) {
   .basicSubmitDetails{display: flex;justify-content: center;}
-  .player_information_form .NEXT-btn{max-width: 200px;width: 100%;font-size: 14px;height: 35px;margin-right: 5px;}
+  .player_information_form .NEXT-btn{max-width: 200px;width: 100%;font-size: 14px;height: 35px;margin-right: 5px;margin-bottom: 0;}
 }
 
 @media only screen and (max-width:480px) {

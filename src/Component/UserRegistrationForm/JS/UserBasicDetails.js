@@ -1,44 +1,44 @@
-import React, { useState } from "react";
-import { Button } from "semantic-ui-react";
-import Datepicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import toastr from "toastr";
-import "toastr/build/toastr.min.css";
-import PropTypes from "prop-types";
-import { UserBasicValidation } from "./Validation";
-import "../CSS/upload.scss";
-import CardProfile from "./PhotoUpload";
+import React, { useState } from 'react'
+import { Button } from 'semantic-ui-react'
+import Datepicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import toastr from 'toastr'
+import 'toastr/build/toastr.min.css'
+import PropTypes from 'prop-types'
+import { UserBasicValidation } from './Validation'
+import '../CSS/upload.scss'
+import CardProfile from './PhotoUpload'
 
-function UserBasicDetails({
+function UserBasicDetails ({
   values,
   handleChange,
   handleImageChange,
   handleDatePicker,
-  nextStep,
+  nextStep
 }) {
-  const finalValues = values.userResponse;
-  const [errors, setErrors] = useState([]);
+  const finalValues = values.userResponse
+  const [errors, setErrors] = useState([])
 
   const handleContinue = async (e) => {
-    e.preventDefault();
-    const error = UserBasicValidation({ values });
-    setErrors(error.errors);
+    e.preventDefault()
+    const error = UserBasicValidation({ values })
+    setErrors(error.errors)
     if (error.count <= 0) {
-      toastr.success("Data Saved Successfully !!");
-      nextStep(2);
+      toastr.success('Data Saved Successfully !!')
+      nextStep(2)
     }
-  };
+  }
 
   const handleBlurEvent = (input) => (e) => {
-    errors[input] = null;
-    setErrors(errors);
-  };
+    errors[input] = null
+    setErrors(errors)
+  }
 
   if (values.userResponse.DateOfBirth !== null) {
-    var today = new Date();
-    var birthDate = new Date(values.userResponse.DateOfBirth);
-    var ageNow = today.getFullYear() - birthDate.getFullYear();
-    values.age = ageNow;
+    var today = new Date()
+    var birthDate = new Date(values.userResponse.DateOfBirth)
+    var ageNow = today.getFullYear() - birthDate.getFullYear()
+    values.age = ageNow
   }
 
   return (
@@ -63,8 +63,8 @@ function UserBasicDetails({
                       className="u-full-width"
                       placeholder="First Name"
                       type="text"
-                      onChange={handleChange("FirstName")}
-                      onBlur={handleBlurEvent("FirstName")}
+                      onChange={handleChange('FirstName')}
+                      onBlur={handleBlurEvent('FirstName')}
                       defaultValue={finalValues.FirstName}
                       autoFocus
                       required
@@ -83,8 +83,8 @@ function UserBasicDetails({
                       className="u-full-width"
                       placeholder="Last Name"
                       type="text"
-                      onChange={handleChange("LastName")}
-                      onBlur={handleBlurEvent("LastName")}
+                      onChange={handleChange('LastName')}
+                      onBlur={handleBlurEvent('LastName')}
                       defaultValue={finalValues.LastName}
                     />
 
@@ -100,8 +100,8 @@ function UserBasicDetails({
                     <label>Birth Date*</label>
                     <Datepicker
                       placeholderText="Click to select a date"
-                      onChange={handleDatePicker("DateOfBirth")}
-                      onBlur={handleBlurEvent("DateOfBirth")}
+                      onChange={handleDatePicker('DateOfBirth')}
+                      onBlur={handleBlurEvent('DateOfBirth')}
                       selected={finalValues.DateOfBirth}
                       className="u-full-width"
                       dateFormat="yyyy-MM-dd"
@@ -125,7 +125,7 @@ function UserBasicDetails({
                     <input
                       className="u-full-width"
                       type="text"
-                      value={values.age + " Years"}
+                      value={values.age + ' Years'}
                       disabled
                     />
                     {errors.age ? (
@@ -143,8 +143,8 @@ function UserBasicDetails({
                       className="u-full-width"
                       placeholder="Height in C.M"
                       type="text"
-                      onChange={handleChange("Height")}
-                      onBlur={handleBlurEvent("Height")}
+                      onChange={handleChange('Height')}
+                      onBlur={handleBlurEvent('Height')}
                       defaultValue={finalValues.Height}
                       minLength={0}
                       maxLength={3}
@@ -163,8 +163,8 @@ function UserBasicDetails({
                       className="u-full-width"
                       placeholder="Weight In K.G"
                       type="text"
-                      onChange={handleChange("Weight")}
-                      onBlur={handleBlurEvent("Weight")}
+                      onChange={handleChange('Weight')}
+                      onBlur={handleBlurEvent('Weight')}
                       defaultValue={finalValues.Weight}
                       maxLength={3}
                     />
@@ -184,8 +184,8 @@ function UserBasicDetails({
                         <i className="right"></i>
                       </span>
                       <select
-                        onChange={handleChange("Nationality")}
-                        onBlur={handleBlurEvent("Nationality")}
+                        onChange={handleChange('Nationality')}
+                        onBlur={handleBlurEvent('Nationality')}
                         value={finalValues.Nationality}
                         className="browser-default custom-select"
                       >
@@ -207,7 +207,7 @@ function UserBasicDetails({
                 <div className="col-md-5">
                   <div
                     className="registration_fields"
-                    style={{ paddingBottom: "0" }}
+                    style={{ paddingBottom: '0' }}
                   >
                     <label>Upload a Photo*</label>
 
@@ -228,7 +228,7 @@ function UserBasicDetails({
         </div>
       </div>
     </>
-  );
+  )
 }
 
 UserBasicDetails.propTypes = {
@@ -236,7 +236,7 @@ UserBasicDetails.propTypes = {
   handleChange: PropTypes.func,
   handleDatePicker: PropTypes.func,
   handleImageChange: PropTypes.func,
-  nextStep: PropTypes.func,
-};
+  nextStep: PropTypes.func
+}
 
-export default UserBasicDetails;
+export default UserBasicDetails
