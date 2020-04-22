@@ -357,7 +357,7 @@ label {
     }
     .HomeLogin--box {
       width: 100%;
-      background: linear-gradient(60deg, #070219 100%, #037145 100%);
+      background: #001b4a;
       .Home--Login {
         .subHeader {
           .subHeaderSpan {
@@ -369,7 +369,7 @@ label {
         }
         form {
           max-width: 300px;
-          .error{
+          .error {
             font-weight: 600;
             color: #ec5555;
           }
@@ -378,7 +378,9 @@ label {
             color: #04b998;
             background: #fff;
           }
-          .userLable{color: #fff;}
+          .userLable {
+            color: #fff;
+          }
           .userLableInput {
             color: #fff;
           }
@@ -397,6 +399,19 @@ label {
         .orData,
         .SocialIcons--header {
           color: #fff;
+        }
+      }
+      .Home--SignUp {
+        .subHeader {
+          line-height: 30px;
+        }
+        form {
+          .form-group {
+            margin-bottom: 5px !important;
+            .userLableInput {
+              height: auto !important;
+            }
+          }
         }
       }
     }
