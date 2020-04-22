@@ -366,7 +366,7 @@ label {
     }
     .HomeLogin--box {
       width: 100%;
-      background: #001b4a;
+      background: #000;
       transform: translateX(0%);
       .Home--Login {
         .subHeader {
@@ -379,6 +379,9 @@ label {
         }
         form {
           max-width: 300px;
+          .form-group {
+            margin-bottom: 6px !important;
+        }
           .error {
             font-weight: 600;
             color: #ec5555;
@@ -386,7 +389,7 @@ label {
           .submitBtn {
             border: 1px solid gray;
             background: #fff;
-            color: gray;
+            color: #000;
           }
           .userLable {
             color: #ccc;
