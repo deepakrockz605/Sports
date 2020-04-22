@@ -360,7 +360,6 @@ label {
       background: linear-gradient(60deg, #070219 100%, #037145 100%);
       .Home--Login {
         .subHeader {
-          line-height: 30px;
           .subHeaderSpan {
             color: #f7e726eb;
           }
@@ -370,7 +369,6 @@ label {
         }
         form {
           max-width: 300px;
-          .form-group{margin-bottom: 5px !important;}
           .error{
             font-weight: 600;
             color: #ec5555;
@@ -382,7 +380,6 @@ label {
           }
           .userLable{color: #fff;}
           .userLableInput {
-            height: auto !important;
             color: #fff;
           }
         }

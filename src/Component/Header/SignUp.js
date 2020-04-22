@@ -39,6 +39,7 @@ class SignUp extends PureComponent {
           isUserCheck: true,
         });
       } else {
+        toastr.error('Username already exists !!')
         this.setState({
           isUserAvail: false,
           isLoader: false,
