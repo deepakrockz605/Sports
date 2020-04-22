@@ -83,7 +83,9 @@ class SignUp extends PureComponent {
       };
       register(userDetail).then((res) => {
         if (res.data.userId) {
-          this.setState({ isLoader: false });
+          this.setState({ isLoader: false, isUser: false });
+          debugger
+          this.props.handleLoginType(this.state.isUser);
           toastr.success("Successfully Signup !!!");
         } else {
           this.setState({ isLoader: false });
