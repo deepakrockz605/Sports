@@ -100,7 +100,7 @@ class Login extends PureComponent {
           </div>
         ) : null}
         <p className="subHeader">
-          <span className="subHeaderSpan">Welcome To</span>
+          {/* <span className="subHeaderSpan">Welcome To</span> */}
           <span className="subHeaderBlock"> Hexovo</span>
         </p>
         <form noValidate>

@@ -318,7 +318,7 @@ label {
       .Home--SignUp {
         form {
           .submitBtn {
-            margin: 12px auto 8px;
+            margin: 20px auto;
           }
         }
       }
@@ -384,12 +384,12 @@ label {
             color: #ec5555;
           }
           .submitBtn {
-            border: 1px solid #04b998;
-            color: #04b998;
+            border: 1px solid gray;
             background: #fff;
+            color: gray;
           }
           .userLable {
-            color: rgba(247, 231, 38, 0.9215686274509803);
+            color: #ccc;
           }
           .userLableInput {
             color: #fff;
@@ -421,6 +421,22 @@ label {
             .userLableInput {
               height: auto !important;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .HomeLogin--Wrapper {
+    .HomeLogin--box {
+      .Home--Login {
+        form {
+          .submitBtn {
+            display: block;
+            width: 100%;
+            border-radius: 7px;
           }
         }
       }
