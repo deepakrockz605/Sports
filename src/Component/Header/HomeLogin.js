@@ -33,7 +33,13 @@ class HomeLogin extends PureComponent {
         <div className="HomeLogin--carausal">
           <Slider />
         </div>
-        <div className="HomeLogin--box">
+        <div
+          className={
+            "HomeLogin--box" +
+            " " +
+            (this.state.isLogin ? "HomeLogin--box--RowWrapper" : "")
+          }
+        >
           {this.state.isLogin ? (
             <SignUp handleLoginType={this.handleUserLogin} />
           ) : (

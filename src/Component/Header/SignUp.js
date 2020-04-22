@@ -159,7 +159,7 @@ class SignUp extends PureComponent {
         <form noValidate>
           <div className="form-group">
             <label className="userLable" id="FirstNameLabel">
-              FirstName
+              Firstname
             </label>
             <input
               className="form-control userLableInput"
@@ -177,7 +177,7 @@ class SignUp extends PureComponent {
 
           <div className="form-group">
             <label className="userLable" id="LastNameLabel">
-              LastName
+              Lastname
             </label>
             <input
               className="form-control userLableInput"

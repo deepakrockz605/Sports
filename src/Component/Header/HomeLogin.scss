@@ -12,8 +12,8 @@ label {
   .HomeLogin--carausal {
     width: 60%;
     height: 100%;
-    // transform: translateX(0);
-    // transition: 0.3s all;
+    transform: translateX(0);
+    transition: 0.3s all;
     .owl-theme {
       .item {
         background: linear-gradient(145deg, #321c8e 1%, #0cfb9c 100%);
@@ -67,8 +67,8 @@ label {
     width: 40%;
     padding: 30px;
     height: 100%;
-    // transform: translateX(0);
-    // transition: 0.3s all;
+    transform: translateX(0);
+    transition: 0.3s all;
     display: table;
 
     .Home--Login {
@@ -216,11 +216,11 @@ label {
 }
 .HomeLogin--RowWrapper {
   .HomeLogin--carausal {
-    // transform: translateX(66%);
+    transform: translateX(70%);
     transition: 0.3s all;
   }
   .HomeLogin--box {
-    // transform: translateX(-152%);
+    transform: translateX(-150%);
     transition: 0.3s all;
   }
 }
@@ -333,6 +333,15 @@ label {
       width: 50%;
     }
   }
+  .HomeLogin--RowWrapper {
+    .HomeLogin--carausal {
+      transform: translateX(100%);
+    }
+    .HomeLogin--box {
+      transform: translateX(-100%);
+      transition: 0.3s all;
+    }
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -358,10 +367,11 @@ label {
     .HomeLogin--box {
       width: 100%;
       background: #001b4a;
+      transform: translateX(0%);
       .Home--Login {
         .subHeader {
           .subHeaderSpan {
-            color: #f7e726eb;
+            color: rgba(247, 231, 38, 0.9215686274509803);
           }
           .subHeaderBlock {
             color: #fff;
@@ -379,7 +389,7 @@ label {
             background: #fff;
           }
           .userLable {
-            color: #fff;
+            color: rgba(247, 231, 38, 0.9215686274509803);
           }
           .userLableInput {
             color: #fff;
@@ -391,7 +401,7 @@ label {
           }
         }
         .newHere {
-          color: #f7e726eb;
+          color: rgba(247, 231, 38, 0.9215686274509803);
           .createAccount {
             color: #fff;
           }
