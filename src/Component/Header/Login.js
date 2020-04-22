@@ -128,6 +128,7 @@ class Login extends PureComponent {
               className="form-control userLableInput"
               type="password"
               name="Password"
+              autoComplete="off"
               ref="Password"
               value={this.state.Password}
               onChange={this.handleChange}
