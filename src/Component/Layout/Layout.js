@@ -12,20 +12,17 @@ class Layout extends PureComponent {
 
     this.state = {
       isLogin: false,
-      userResponse: '',
+      userLog: '',
       inSession: false
     }
   }
 
   componentDidMount () {
-    let userLog = sessionStorage.getItem('userData')
-    userLog = JSON.parse(userLog)
-    this.setState({
-      userResponse : userLog
-    })
-    if (this.state.userResponse) {
+    let userLog = JSON.parse(sessionStorage.getItem('userData'))
+    if (userLog) {
       this.setState({
-        inSession: true
+        inSession: true,
+        userLog : userLog
       })
     } else {
       this.setState({
@@ -39,15 +36,14 @@ class Layout extends PureComponent {
   };
 
   render () {
-    const {userResponse} = this.state.userResponse
     let user = ''
     if (
-      userResponse !== '' &&
-      userResponse !== 'undefined' &&
-      userResponse !== null
+      this.state.userLog !== '' &&
+      this.state.userLog !== 'undefined' &&
+      this.state.userLog !== null
     ) {
-      if (getUserSession(userResponse)) {
-        user = userResponse
+      if (getUserSession(this.state.userLog)) {
+        user = JSON.parse(sessionStorage.getItem('userData'))
       }
     }
     toastr.options = { positionClass: 'toast-top-center' }
