@@ -1,56 +1,57 @@
-import React, { PureComponent } from "react";
-import HomeLogin from "../Header/HomeLogin";
-import Header from "../Header/Header";
-import { getUserSession } from "../../Services/playerRegistration";
-import PropTypes from "prop-types";
-import toastr from "toastr";
-import "toastr/build/toastr.min.css";
+import React, { PureComponent } from 'react'
+import HomeLogin from '../Header/HomeLogin'
+import Header from '../Header/Header'
+import { getUserSession } from '../../Services/playerRegistration'
+import PropTypes from 'prop-types'
+import toastr from 'toastr'
+import 'toastr/build/toastr.min.css'
 
 class Layout extends PureComponent {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
       isLogin: false,
-      userLog: "",
-      inSession: false,
-    };
+      userResponse: '',
+      inSession: false
+    }
   }
 
-  componentDidMount() {
-    let userLog = sessionStorage.getItem("userData");
-    userLogs = JSON.parse(userLog);
+  componentDidMount () {
+    let userLog = sessionStorage.getItem('userData')
+    userLog = JSON.parse(userLog)
     this.setState({
-      userLog : userLogs
-    });
-    if (userLogs) {
+      userResponse : userLog
+    })
+    if (userLog) {
       this.setState({
-        inSession: true,
-      });
+        inSession: true
+      })
     } else {
       this.setState({
-        inSession: true,
-      });
+        inSession: true
+      })
     }
   }
 
   handleUserLogin = (langValue) => {
-    this.setState({ isLogin: langValue });
+    this.setState({ isLogin: langValue })
   };
 
-  render() {
-    let user = "";
+  render () {
+    const {userResponse} = this.state.userResponse
+    let user = ''
     if (
-      this.state.userLog !== "" &&
-      this.state.userLog !== "undefined" &&
-      this.state.userLog !== null
+      userResponse !== '' &&
+      userResponse !== 'undefined' &&
+      userResponse !== null
     ) {
-      if (getUserSession(this.state.userLog)) {
-        user = JSON.parse(sessionStorage.getItem("userData"));
+      if (getUserSession(userResponse)) {
+        user = userResponse
       }
     }
-    toastr.options = { positionClass: "toast-top-center" };
-    let show = <HomeLogin />;
+    toastr.options = { positionClass: 'toast-top-center' }
+    let show = <HomeLogin />
 
     if (user && user.success) {
       show = (
@@ -61,15 +62,15 @@ class Layout extends PureComponent {
 
           <div className="corporate-wrapper">{this.props.children}</div>
         </div>
-      );
+      )
     }
 
-    return <div>{show}</div>;
+    return <div>{show}</div>
   }
 }
 
 Layout.propTypes = {
-  children: PropTypes.any,
-};
+  children: PropTypes.any
+}
 
-export default Layout;
+export default Layout
