@@ -79,7 +79,7 @@ class SignUp extends PureComponent {
     e.preventDefault()
     const returnData = this.handleErrors(this.state)
     console.log(returnData)
-    if (returnData.count < 0) {
+    if (returnData.count <= 0) {
       this.setState({ isLoader: true })
       const userDetail = {
         FirstName: this.state.FirstName,
