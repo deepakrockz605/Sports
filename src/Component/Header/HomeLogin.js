@@ -39,9 +39,9 @@ class HomeLogin extends PureComponent {
           }
         >
           {this.state.isLogin ? (
-            <SignUp handleLoginType={this.handleUserLogin} history={this.props} />
+            <SignUp handleLoginType={this.handleUserLogin} history={this.props.history} />
           ) : (
-            <Login handleLoginType={this.handleUserLogin} history={this.props} />
+            <Login handleLoginType={this.handleUserLogin} history={this.props.history} />
           )}
         </div>
       </div>

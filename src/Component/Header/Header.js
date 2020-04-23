@@ -5,6 +5,8 @@ import queryString from 'query-string'
 import PropTypes from 'prop-types'
 import './Header.scss'
 import { login } from '../../Services/services'
+import toastr from 'toastr'
+import 'toastr/build/toastr.min.css'
 
 class Header extends PureComponent {
   constructor (props) {
@@ -22,8 +24,12 @@ class Header extends PureComponent {
 
   componentDidUpdate (prevProps, prevState) {
     const userDetails = JSON.parse(sessionStorage.getItem('userData'))
-    if (!userDetails) {
-      this.props.history.push('/')
+    if(userDetails){
+      console.log('in session')
+    }
+    else{
+      window.location.href = '/'
+      toastr.error('Session Expired !!')
     }
   }
 
