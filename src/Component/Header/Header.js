@@ -15,7 +15,8 @@ class Header extends PureComponent {
       isLogin: false,
       userLog: null,
       showDropdown: false,
-      isUser: true
+      isUser: true,
+      userDetails : ''
     }
   }
 
@@ -53,6 +54,10 @@ class Header extends PureComponent {
   };
 
   componentDidMount () {
+    const userDetails = JSON.parse(sessionStorage.getItem('userData'))
+    this.setState({
+      userDetails
+    })
     const query = queryString.parse(this.props.location.search)
     if (query.user) {
       console.log('Google User')
@@ -71,10 +76,10 @@ class Header extends PureComponent {
 
   render () {
     let { isLogin } = this.state.isLogin
-    const userDetails = JSON.parse(sessionStorage.getItem('userData'))
+    
 
-    if (userDetails) {
-      if (userDetails.success) {
+    if (this.state.userDetails) {
+      if (this.state.userDetails.success) {
         isLogin = true
       }
     }
@@ -126,13 +131,13 @@ class Header extends PureComponent {
                           <i className="fa fa-caret-right"></i>
                         </span>
 
-                        {`${userDetails.FirstName.charAt(
+                        {`${this.state.userDetails.FirstName.charAt(
                           0
-                        )}${userDetails.LastName.charAt(0)}`}
+                        )}${this.state.userDetails.LastName.charAt(0)}`}
                         {this.state.showDropdown ? (
                           <div className="headerDropdown">
                             <p>Hello, </p>
-                            <p className="headerDropdown--user">{`${userDetails.FirstName} ${userDetails.LastName}`}</p>
+                            <p className="headerDropdown--user">{`${this.state.userDetails.FirstName} ${this.state.userDetails.LastName}`}</p>
                             <p className="headerDropdown--logs headerDropdown--profile">
                               <Link
                                 to="/home"
@@ -196,7 +201,7 @@ class Header extends PureComponent {
                           style={{ paddingRight: '10px', fontSize: '30px' }}
                         ></i>
                         <p>Hello,</p>
-                        <p className="">&nbsp; {`${userDetails.FirstName}`}</p>
+                        <p className="">&nbsp; {`${this.state.userDetails.FirstName}`}</p>
                       </div>
                     </li>
                     <li className="HeaderList">
