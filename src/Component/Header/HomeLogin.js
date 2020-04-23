@@ -1,33 +1,31 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react'
+import { withRouter } from 'react-router-dom'
 
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import Slider from "./Slider";
-import Login from "./Login";
-import SignUp from "./SignUp";
-import "./HomeLogin.scss";
+import Slider from './Slider'
+import Login from './Login'
+import SignUp from './SignUp'
+import './HomeLogin.scss'
 
 class HomeLogin extends PureComponent {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
-      isLogin: false,
-    };
+      isLogin: false
+    }
   }
 
   handleUserLogin = (langValue) => {
-    console.log(langValue);
-    this.setState({ isLogin: langValue });
-  };
+    this.setState({ isLogin: langValue })
+  }
 
-  render() {
+  render () {
     return (
       <div
         className={
-          "HomeLogin--Wrapper" +
-          " " +
-          (this.state.isLogin ? "HomeLogin--RowWrapper" : "")
+          'HomeLogin--Wrapper' +
+          ' ' +
+          (this.state.isLogin ? 'HomeLogin--RowWrapper' : '')
         }
       >
         <div className="HomeLogin--carausal">
@@ -35,25 +33,20 @@ class HomeLogin extends PureComponent {
         </div>
         <div
           className={
-            "HomeLogin--box" +
-            " " +
-            (this.state.isLogin ? "HomeLogin--box--RowWrapper" : "")
+            'HomeLogin--box' +
+            ' ' +
+            (this.state.isLogin ? 'HomeLogin--box--RowWrapper' : '')
           }
         >
           {this.state.isLogin ? (
-            <SignUp handleLoginType={this.handleUserLogin} />
+            <SignUp handleLoginType={this.handleUserLogin} history={this.props} />
           ) : (
-            <Login handleLoginType={this.handleUserLogin} />
+            <Login handleLoginType={this.handleUserLogin} history={this.props} />
           )}
         </div>
       </div>
-    );
+    )
   }
 }
 
-HomeLogin.propTypes = {
-  getLoginDetailInfo: PropTypes.func,
-  history: PropTypes.object,
-};
-
-export default connect()(HomeLogin);
+export default withRouter(HomeLogin)

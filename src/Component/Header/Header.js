@@ -14,12 +14,20 @@ class Header extends PureComponent {
       sidebar: false,
       isLogin: false,
       userLog: null,
-      showDropdown: false
+      showDropdown: false,
+      isUser: true
+    }
+  }
+
+  componentDidUpdate (prevProps, prevState) {
+    const userDetails = JSON.parse(sessionStorage.getItem('userData'))
+    if (!userDetails) {
+      this.props.history.push('/')
     }
   }
 
   handleUserDropdown = (e) => {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       showDropdown: !prevState.showDropdown
     }))
   };
@@ -34,23 +42,13 @@ class Header extends PureComponent {
     })
   };
 
-  updateSignup = () => {
-    this.props.history.push('/signup')
-  };
-
-  updateLogin = () => {
-    this.props.history.push('/login')
-  };
-
   updateLogout = () => {
     this.setState({
       sidebar: false
     })
+    this.setState({ isUser: false })
+    this.props.handleLoginType(this.state.isUser)
     sessionStorage.clear()
-    this.props.history.push('/login')
-  };
-
-  updateHome = () => {
     this.props.history.push('/')
   };
 
@@ -74,6 +72,7 @@ class Header extends PureComponent {
   render () {
     let { isLogin } = this.state.isLogin
     const userDetails = JSON.parse(sessionStorage.getItem('userData'))
+
     if (userDetails) {
       if (userDetails.success) {
         isLogin = true
@@ -83,7 +82,7 @@ class Header extends PureComponent {
       <>
         <div className="headerFixed">
           <nav className="navbar navbar-expand-sm navbar-dark">
-            <Link to="/" className="navbar-brand">
+            <Link to="/home" className="navbar-brand">
               HEXOVO
             </Link>
             <button
@@ -119,7 +118,13 @@ class Header extends PureComponent {
                         className="loginUserBox"
                         onClick={this.handleUserDropdown}
                       >
-                        <span className={this.state.showDropdown ? 'arrowUp' : 'arrowDown'}><i className="fa fa-caret-right"></i></span>
+                        <span
+                          className={
+                            this.state.showDropdown ? 'arrowUp' : 'arrowDown'
+                          }
+                        >
+                          <i className="fa fa-caret-right"></i>
+                        </span>
 
                         {`${userDetails.FirstName.charAt(
                           0
@@ -130,7 +135,7 @@ class Header extends PureComponent {
                             <p className="headerDropdown--user">{`${userDetails.FirstName} ${userDetails.LastName}`}</p>
                             <p className="headerDropdown--logs headerDropdown--profile">
                               <Link
-                                to="/"
+                                to="/home"
                                 className="headerDropdown--links"
                               >
                                 Home
@@ -141,7 +146,7 @@ class Header extends PureComponent {
                                 to="/dashboard"
                                 className="headerDropdown--links"
                               >
-                              Your Profile
+                                Your Profile
                               </Link>
                             </p>
                             <p className="headerDropdown--logs">
@@ -175,7 +180,9 @@ class Header extends PureComponent {
               className={
                 'HeaderSideBar HeaderSideBarUpdated' +
                 ' ' +
-                (this.state.sidebar ? 'HeaderSideBarUpdated HeaderSideBarRight' : '')
+                (this.state.sidebar
+                  ? 'HeaderSideBarUpdated HeaderSideBarRight'
+                  : '')
               }
             >
               <ul className="HeaderUl">
@@ -185,30 +192,42 @@ class Header extends PureComponent {
                       <div className="HeaderList--userInfo">
                         <i
                           className="fa fa-user-circle userProfile"
-                          aria-hidden="true" style={{ paddingRight: '10px', fontSize: '30px' }}
+                          aria-hidden="true"
+                          style={{ paddingRight: '10px', fontSize: '30px' }}
                         ></i>
                         <p>Hello,</p>
                         <p className="">&nbsp; {`${userDetails.FirstName}`}</p>
                       </div>
                     </li>
                     <li className="HeaderList">
-                      <Link to="/" onClick={this.handleOverlay}>Home</Link>
+                      <Link to="/" onClick={this.handleOverlay}>
+                        Home
+                      </Link>
                     </li>
                     <li className="HeaderList">
-                      <Link to="/dashboard" onClick={this.handleOverlay}>Your Profile</Link>
+                      <Link to="/dashboard" onClick={this.handleOverlay}>
+                        Your Profile
+                      </Link>
                     </li>
                     <li className="HeaderList">
-                      <Link to="/dashboard" onClick={this.handleOverlay}>Go to Dashboard</Link>
+                      <Link to="/dashboard" onClick={this.handleOverlay}>
+                        Go to Dashboard
+                      </Link>
                     </li>
                     <li className="HeaderList" onClick={this.updateLogout}>
                       Logout
                     </li>
                   </>
                 ) : (
-                  <Link to="/login" onClick={this.handleOverlay} style={{ display: 'flex', alignItems: 'center' }}>
+                  <Link
+                    to="/login"
+                    onClick={this.handleOverlay}
+                    style={{ display: 'flex', alignItems: 'center' }}
+                  >
                     <i
                       className="fa fa-user-circle userProfile"
-                      aria-hidden="true" style={{ paddingRight: '10px', fontSize: '20px' }}
+                      aria-hidden="true"
+                      style={{ paddingRight: '10px', fontSize: '20px' }}
                     ></i>
                     Signup / Login
                   </Link>
@@ -223,6 +242,7 @@ class Header extends PureComponent {
 }
 
 Header.propTypes = {
+  handleLoginType: PropTypes.func,
   history: PropTypes.object,
   location: PropTypes.object
 }

@@ -18,12 +18,12 @@ class Dashboard extends PureComponent {
           return true
         } else {
           sessionStorage.clear()
-          this.props.history.push('/login')
+          this.props.history.push('/')
         }
       })
     } else {
       sessionStorage.clear()
-      this.props.history.push('/login')
+      this.props.history.push('/')
     }
   }
 
@@ -95,7 +95,6 @@ class Dashboard extends PureComponent {
 
 Dashboard.propTypes = {
   history: PropTypes.object
-  // push: PropTypes.func
 }
 
 export default withRouter(Dashboard)

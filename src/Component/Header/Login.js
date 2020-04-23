@@ -1,95 +1,85 @@
-import React, { PureComponent } from "react";
-import { login } from "../../Services/services";
-import FootballLoader from "../Common/FootballLoader";
-import toastr from "toastr";
-import "toastr/build/toastr.min.css";
+import React, { PureComponent } from 'react'
+import { login } from '../../Services/services'
+import FootballLoader from '../Common/FootballLoader'
+import PropTypes from 'prop-types'
+import toastr from 'toastr'
+import 'toastr/build/toastr.min.css'
 
 class Login extends PureComponent {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
-      UserName: "",
-      Password: "",
+      UserName: '',
+      Password: '',
       isLoader: false,
       isUser: true,
-    };
+      errros: []
+    }
   }
 
   handleUserChange = (e) => {
-    this.setState({ isUser: false });
-    this.props.handleLoginType(this.state.isUser);
-  };
+    this.setState({ isUser: false })
+    this.props.handleLoginType(this.state.isUser)
+  }
 
   handleChange = (e) => {
-    e.target.classList.add("active");
-
     this.setState({
-      [e.target.name]: e.target.value,
-    });
+      [e.target.name]: e.target.value
+    })
+  }
 
-    this.showInputError(e.target.name);
-  };
+  handleErrors = (e) => {
+    const fields = this.state
+    const error = []
+    let count = 0
+    if (!fields.UserName) {
+      error.UserName = 'Username cannot be empty!!'
+      count = count + 1
+    }
+
+    if (fields.Password !== '') {
+      if (fields.Password.length - 1 <= 5) {
+        error.Password = 'Password lenghth should be greater than 6!!'
+        count = count + 1
+      }
+    } else {
+      error.Password = 'Password cannot be empty!!'
+      count = count + 1
+    }
+    this.setState({
+      errros: error
+    })
+    return { error, count }
+  }
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    if (!this.showFormErrors()) {
-      console.log("form is invalid: do not submit");
+    e.preventDefault()
+
+    const returnData = this.handleErrors(this.state)
+    console.log(returnData)
+    if (returnData.count > 0) {
+      return false
     } else {
-      this.setState({ isLoader: true });
+      this.setState({ isLoader: true })
       const userDetail = {
         UserName: this.state.UserName,
-        Password: this.state.Password,
-      };
+        Password: this.state.Password
+      }
       login(userDetail).then((res) => {
         if (res.success) {
-          toastr.success("Login Successfull !!!");
-          this.setState({ isLoader: false });
+          toastr.success('Login Successfull !!!')
+          this.setState({ isLoader: false })
+          window.location.href = '/dashboard'
         } else {
-          toastr.error("Username or Password Incorrect !!!");
-          this.setState({ isLoader: false });
+          toastr.error('Username or Password Incorrect !!!')
+          this.setState({ isLoader: false })
         }
-      });
+      })
     }
-  };
-
-  showFormErrors() {
-    const inputs = document.querySelectorAll("input");
-    let isFormValid = true;
-
-    inputs.forEach((input) => {
-      input.classList.add("active");
-
-      const isInputValid = this.showInputError(input.name);
-
-      if (!isInputValid) {
-        isFormValid = false;
-      }
-    });
-
-    return isFormValid;
   }
 
-  showInputError(refName) {
-    const validity = this.refs[refName].validity;
-    const label = document.getElementById(`${refName}Label`).textContent;
-    const error = document.getElementById(`${refName}Error`);
-    const isPassword = refName.indexOf("Password") !== -1;
-
-    if (!validity.valid) {
-      if (validity.valueMissing) {
-        error.textContent = `${label} is a required field`;
-      } else if (isPassword && validity.patternMismatch) {
-        error.textContent = `${label} should be longer than 6 chars`;
-      }
-      return false;
-    }
-
-    error.textContent = "";
-    return true;
-  }
-
-  render() {
+  render () {
     return (
       <div className="Home--Login">
         {this.state.isLoader ? (
@@ -100,7 +90,6 @@ class Login extends PureComponent {
           </div>
         ) : null}
         <p className="subHeader">
-          {/* <span className="subHeaderSpan">Welcome To</span> */}
           <span className="subHeaderBlock"> Hexovo</span>
         </p>
         <form noValidate>
@@ -112,13 +101,15 @@ class Login extends PureComponent {
               className="form-control userLableInput"
               type="text"
               name="UserName"
-              ref="UserName"
               autoComplete="off"
               value={this.state.UserName}
               onChange={this.handleChange}
+              // onBlur={this.handleBlur}
               required
             />
-            <div className="error" id="UserNameError" />
+            {this.state.errros.UserName ? (
+              <div className="error">{this.state.errros.UserName}</div>
+            ) : null}
           </div>
           <div className="form-group">
             <label className="userLable" id="PasswordLabel">
@@ -128,13 +119,15 @@ class Login extends PureComponent {
               className="form-control userLableInput"
               type="password"
               name="Password"
-              ref="Password"
               value={this.state.Password}
+              // onBlur={this.handleBlur}
               onChange={this.handleChange}
               pattern=".{5,}"
               required
             />
-            <div className="error" id="PasswordError" />
+            {this.state.errros.Password ? (
+              <div className="error">{this.state.errros.Password}</div>
+            ) : null}
           </div>
           <button className="submitBtn" onClick={this.handleSubmit}>
             LOGIN
@@ -161,7 +154,7 @@ class Login extends PureComponent {
           </div>
           <div>
             <p className="newHere">
-              New to Here ?{" "}
+              New to Here ?{' '}
               <span className="createAccount" onClick={this.handleUserChange}>
                 Create Account
               </span>
@@ -169,8 +162,12 @@ class Login extends PureComponent {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Login;
+Login.propTypes = {
+  handleLoginType: PropTypes.func
+}
+
+export default Login
