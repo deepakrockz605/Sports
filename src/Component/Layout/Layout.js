@@ -23,7 +23,7 @@ class Layout extends PureComponent {
     this.setState({
       userResponse : userLog
     })
-    if (userLog) {
+    if (this.state.userResponse) {
       this.setState({
         inSession: true
       })
