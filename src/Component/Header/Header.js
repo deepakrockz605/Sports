@@ -66,6 +66,7 @@ class Header extends PureComponent {
       userDetails
     })
     const query = queryString.parse(this.props.location.search)
+    console.log(query)
     if (query.user) {
       console.log('Google User')
       const user = {
@@ -177,11 +178,7 @@ class Header extends PureComponent {
                           </div>
                         ) : null}
                       </div>
-                    ) : (
-                      <Link to="/login" onClick={this.handleOverlay}>
-                        Signup / Login
-                      </Link>
-                    )}
+                    ) : null}
                   </div>
                 </li>
               </ul>
