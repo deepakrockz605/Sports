@@ -211,7 +211,7 @@ class Header extends PureComponent {
                       </div>
                     </li>
                     <li className="HeaderList">
-                      <Link to="/" onClick={this.handleOverlay}>
+                      <Link to="/home" onClick={this.handleOverlay}>
                         Home
                       </Link>
                     </li>
