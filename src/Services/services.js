@@ -37,7 +37,7 @@ export const login = (user) => {
       sso: user.sso ? user.sso : undefined
     })
     .then((res) => {
-      sessionStorage.setItem('userData', JSON.stringify(res.data))
+      localStorage.setItem('userData', JSON.stringify(res.data))
       return res.data
     })
     .catch((err) => {

@@ -19,7 +19,7 @@ function UserContactDetails ({
 
     if (error.count <= 0) {
       const userDetails = values.userResponse
-      let userLog = sessionStorage.getItem('userData')
+      let userLog = localStorage.getItem('userData')
       userLog = JSON.parse(userLog)
       if (values.isUserRegisterd) {
         userUpdate(userDetails, userLog).then((res) => {

@@ -130,7 +130,7 @@ class RegistrationSteps extends PureComponent {
   }
 
   componentDidMount () {
-    let userLog = sessionStorage.getItem('userData')
+    let userLog = localStorage.getItem('userData')
     userLog = JSON.parse(userLog)
 
     if (userLog) {
@@ -165,12 +165,12 @@ class RegistrationSteps extends PureComponent {
             }
           })
         } else {
-          sessionStorage.clear()
+          localStorage.clear()
           this.props.history.push('/')
         }
       })
     } else {
-      sessionStorage.clear()
+      localStorage.clear()
       this.props.history.push('/')
     }
 

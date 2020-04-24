@@ -1,55 +1,55 @@
-import React, { PureComponent } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import { Route, Switch } from 'react-router'
-import HomeLogin from '../Header/HomeLogin'
-import Home from '../Home/Home'
-import Dashboard from '../Dashboard/Dashboard'
-import Signup from '../Signup/Signup'
-import Header from '../Header/Header'
-import RegistrationSteps from '../UserRegistrationForm/JS/RegistrationSteps'
-import PageNotFound from '../PageNotFound'
-import toastr from 'toastr'
-import 'toastr/build/toastr.min.css'
+import React, { PureComponent } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch } from "react-router";
+import HomeLogin from "../Header/HomeLogin";
+import Home from "../Home/Home";
+import Dashboard from "../Dashboard/Dashboard";
+import Signup from "../Signup/Signup";
+import Header from "../Header/Header";
+import RegistrationSteps from "../UserRegistrationForm/JS/RegistrationSteps";
+import PageNotFound from "../PageNotFound";
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
 
 class RestrictedContainer extends PureComponent {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
       isHeader: false,
-      userAlready: false
-    }
+      userAlready: false,
+    };
   }
 
   sayHello = (e) => {
     this.setState({
-      isHeader: e
-    })
+      isHeader: e,
+    });
   };
 
   headerVal = (e) => {
     this.setState({
       isHeader: e,
       userAlready: e
-    })
+    });
   };
 
   componentDidMount = (e) => {
     console.log(this.state.isHeader)
-    const userLog = JSON.parse(sessionStorage.getItem('userData'))
+    let userLog = JSON.parse(localStorage.getItem("userData"));
     if (userLog) {
       this.setState({
         userAlready: true,
-        isHeader: true
-      })
+        isHeader : true
+      });
     }
   };
 
-  render () {
+  render() {
     toastr.options = {
-      positionClass: 'toast-top-center',
-      closeButton: true
-    }
+      positionClass: "toast-top-center",
+      closeButton: true,
+    };
     return (
       <Router>
         {this.state.isHeader ? <Header sayHeader={this.headerVal} /> : null}
@@ -71,8 +71,8 @@ class RestrictedContainer extends PureComponent {
           <Route path="*" component={PageNotFound} />
         </Switch>
       </Router>
-    )
+    );
   }
 }
 
-export default RestrictedContainer
+export default RestrictedContainer;

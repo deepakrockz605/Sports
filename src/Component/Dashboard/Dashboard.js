@@ -10,19 +10,19 @@ class Dashboard extends PureComponent {
   }
 
   componentDidMount () {
-    let userLog = sessionStorage.getItem('userData')
+    let userLog = localStorage.getItem('userData')
     userLog = JSON.parse(userLog)
     if (userLog) {
       getUserSession(userLog).then((res) => {
         if (res) {
           return true
         } else {
-          sessionStorage.clear()
+          localStorage.clear()
           this.props.history.push('/')
         }
       })
     } else {
-      sessionStorage.clear()
+      localStorage.clear()
       this.props.history.push('/')
     }
   }
