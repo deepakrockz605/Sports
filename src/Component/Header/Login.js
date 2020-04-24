@@ -14,7 +14,8 @@ class Login extends PureComponent {
       Password: '',
       isLoader: false,
       isUser: true,
-      errros: []
+      errros: [],
+      isHeader : false
     }
   }
 
@@ -55,7 +56,7 @@ class Login extends PureComponent {
 
   handleSubmit = (e) => {
     e.preventDefault()
-
+    
     const returnData = this.handleErrors(this.state)
     if (returnData.count <= 0) {
       this.setState({ isLoader: true })
@@ -66,9 +67,9 @@ class Login extends PureComponent {
       login(userDetail).then((res) => {
         if (res.success) {
           toastr.success('Login Successfull !!!')
-          this.setState({ isLoader: false })
+          this.setState({ isLoader: false , isHeader : true })
+          this.props.sayH(this.state.isHeader)
           this.props.history.push('/dashboard')
-          // window.location.href = '/dashboard'
         } else {
           toastr.error('Username or Password Incorrect !!!')
           this.setState({ isLoader: false })

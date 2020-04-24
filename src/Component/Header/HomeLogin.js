@@ -11,12 +11,17 @@ class HomeLogin extends PureComponent {
     super(props)
 
     this.state = {
-      isLogin: false
+      isLogin: false,
+      isheader : false
     }
   }
 
   handleUserLogin = (langValue) => {
     this.setState({ isLogin: langValue })
+  }
+
+  sayHello = e =>{
+    this.props.sayHello(e)
   }
 
   render () {
@@ -39,9 +44,9 @@ class HomeLogin extends PureComponent {
           }
         >
           {this.state.isLogin ? (
-            <SignUp handleLoginType={this.handleUserLogin} history={this.props.history} />
+            <SignUp handleLoginType = {this.handleUserLogin} />
           ) : (
-            <Login handleLoginType={this.handleUserLogin} history={this.props.history} />
+            <Login handleLoginType = {this.handleUserLogin} sayH = {this.sayHello} history={this.props.history} />
           )}
         </div>
       </div>

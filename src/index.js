@@ -4,7 +4,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import { BrowserRouter } from 'react-router-dom'
+
 import './index.scss'
 import App from './App'
 import reducers from './Store/Reducers'
@@ -14,9 +14,7 @@ import '../node_modules/font-awesome/css/font-awesome.min.css'
 
 ReactDOM.render(
   <Provider store={createStore(reducers)}>
-    <BrowserRouter>
       <App />
-    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 )

@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { withRouter, Link } from 'react-router-dom'
 import queryString from 'query-string'
 import PropTypes from 'prop-types'
-import './Header.scss'
-import { login } from '../../Services/services'
 import toastr from 'toastr'
 import 'toastr/build/toastr.min.css'
+import './Header.scss'
+import { login } from '../../Services/services'
 
 class Header extends PureComponent {
   constructor (props) {
@@ -28,8 +28,9 @@ class Header extends PureComponent {
       console.log('in session')
     }
     else{
-      window.location.href = '/'
       toastr.error('Session Expired !!')
+      this.props.sayHeader(false)
+      this.props.history.push('/')
     }
   }
 
@@ -54,9 +55,10 @@ class Header extends PureComponent {
       sidebar: false
     })
     this.setState({ isUser: false })
-    this.props.handleLoginType(this.state.isUser)
+    this.props.sayHeader(false)
     sessionStorage.clear()
     this.props.history.push('/')
+    toastr.success('You Have Logged Out Successfully !!')
   };
 
   componentDidMount () {
@@ -253,7 +255,6 @@ class Header extends PureComponent {
 }
 
 Header.propTypes = {
-  handleLoginType: PropTypes.func,
   history: PropTypes.object,
   location: PropTypes.object
 }
