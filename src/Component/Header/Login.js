@@ -15,7 +15,7 @@ class Login extends PureComponent {
       isLoader: false,
       isUser: true,
       errros: [],
-      isHeader : false
+      isHeader: false
     }
   }
 
@@ -56,7 +56,7 @@ class Login extends PureComponent {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    
+
     const returnData = this.handleErrors(this.state)
     if (returnData.count <= 0) {
       this.setState({ isLoader: true })
@@ -67,7 +67,7 @@ class Login extends PureComponent {
       login(userDetail).then((res) => {
         if (res.success) {
           toastr.success('Login Successfull !!!')
-          this.setState({ isLoader: false , isHeader : true })
+          this.setState({ isLoader: false, isHeader: true })
           this.props.sayH(this.state.isHeader)
           this.props.history.push('/dashboard')
         } else {
@@ -166,7 +166,9 @@ class Login extends PureComponent {
 }
 
 Login.propTypes = {
-  handleLoginType: PropTypes.func
+  handleLoginType: PropTypes.func,
+  sayH: PropTypes.func,
+  history: PropTypes.object
 }
 
 export default Login

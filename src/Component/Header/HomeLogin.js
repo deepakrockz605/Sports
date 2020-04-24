@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import Slider from './Slider'
 import Login from './Login'
@@ -12,7 +13,7 @@ class HomeLogin extends PureComponent {
 
     this.state = {
       isLogin: false,
-      isheader : false
+      isheader: false
     }
   }
 
@@ -20,7 +21,7 @@ class HomeLogin extends PureComponent {
     this.setState({ isLogin: langValue })
   }
 
-  sayHello = e =>{
+  sayHello = e => {
     this.props.sayHello(e)
   }
 
@@ -52,6 +53,11 @@ class HomeLogin extends PureComponent {
       </div>
     )
   }
+}
+
+HomeLogin.propTypes = {
+  sayHello: PropTypes.func,
+  history: PropTypes.object
 }
 
 export default withRouter(HomeLogin)

@@ -393,8 +393,6 @@ class RegistrationSteps extends PureComponent {
     const { currentStep } = this.state
     const values = { ...this.state }
 
-    
-
     var data = ''
     switch (currentStep) {
       case 1:

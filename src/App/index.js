@@ -4,7 +4,7 @@ import '../Style/stylesheet.css'
 
 const App = () => {
   return (
-      <RestrictedContainer />
+    <RestrictedContainer />
   )
 }
 

@@ -18,16 +18,15 @@ class Header extends PureComponent {
       userLog: null,
       showDropdown: false,
       isUser: true,
-      userDetails : ''
+      userDetails: ''
     }
   }
 
   componentDidUpdate (prevProps, prevState) {
     const userDetails = JSON.parse(sessionStorage.getItem('userData'))
-    if(userDetails){
+    if (userDetails) {
       console.log('in session')
-    }
-    else{
+    } else {
       toastr.error('Session Expired !!')
       this.props.sayHeader(false)
       this.props.history.push('/')
@@ -84,7 +83,6 @@ class Header extends PureComponent {
 
   render () {
     let { isLogin } = this.state.isLogin
-    
 
     if (this.state.userDetails) {
       if (this.state.userDetails.success) {
@@ -255,6 +253,7 @@ class Header extends PureComponent {
 }
 
 Header.propTypes = {
+  sayHeader: PropTypes.func,
   history: PropTypes.object,
   location: PropTypes.object
 }

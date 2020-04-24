@@ -14,7 +14,7 @@ import '../node_modules/font-awesome/css/font-awesome.min.css'
 
 ReactDOM.render(
   <Provider store={createStore(reducers)}>
-      <App />
+    <App />
   </Provider>,
   document.getElementById('root')
 )
