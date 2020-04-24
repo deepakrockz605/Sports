@@ -51,16 +51,15 @@ class Header extends PureComponent {
 
   updateLogout = () => {
     this.setState({
-      sidebar: false
+      sidebar: false, isUser: false
     })
-    this.setState({ isUser: false })
     this.props.sayHeader(false)
     sessionStorage.clear()
     this.props.history.push('/')
     toastr.success('You Have Logged Out Successfully !!')
   };
 
-  componentDidMount () {
+  componentDidMount = e => {
     const userDetails = JSON.parse(sessionStorage.getItem('userData'))
     this.setState({
       userDetails

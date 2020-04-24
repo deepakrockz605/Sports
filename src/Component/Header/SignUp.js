@@ -78,7 +78,6 @@ class SignUp extends PureComponent {
   handleSubmit = (e) => {
     e.preventDefault()
     const returnData = this.handleErrors(this.state)
-    console.log(returnData)
     if (returnData.count <= 0) {
       this.setState({ isLoader: true })
       const userDetail = {

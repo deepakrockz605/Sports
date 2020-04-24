@@ -16,7 +16,8 @@ class RestrictedContainer extends PureComponent {
     super(props)
 
     this.state = {
-      isHeader: false
+      isHeader: false,
+      userAlready: false
     }
   }
 
@@ -28,26 +29,41 @@ class RestrictedContainer extends PureComponent {
 
   headerVal = (e) => {
     this.setState({
-      isHeader: e
+      isHeader: e,
+      userAlready: e
     })
+  };
+
+  componentDidMount = (e) => {
+    console.log(this.state.isHeader)
+    const userLog = JSON.parse(sessionStorage.getItem('userData'))
+    if (userLog) {
+      this.setState({
+        userAlready: true,
+        isHeader: true
+      })
+    }
   };
 
   render () {
     toastr.options = {
       positionClass: 'toast-top-center',
-      closeButton: true,
-      timeOut: '0',
-      extendedTimeOut: '0'
+      closeButton: true
     }
     return (
       <Router>
         {this.state.isHeader ? <Header sayHeader={this.headerVal} /> : null}
         <Switch>
-          <Route
-            path="/"
-            exact
-            render={() => <HomeLogin sayHello={this.sayHello} />}
-          />
+          {this.state.userAlready ? (
+            <Route path="/" exact component={Dashboard} />
+          ) : (
+            <Route
+              path="/"
+              exact
+              render={() => <HomeLogin sayHello={this.sayHello} />}
+            />
+          )}
+
           <Route path="/home" exact component={Home} />
           <Route path="/dashboard" exact component={Dashboard} />
           <Route path="/signup" exact component={Signup} />

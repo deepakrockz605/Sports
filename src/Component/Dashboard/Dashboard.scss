@@ -182,17 +182,32 @@
 @media (max-width: 767px) {
   .dashBoard-wrapper {
     .container {
-        padding-left: 0;
-        padding-right: 0;
+      padding-left: 0;
+      padding-right: 0;
       .card {
-          padding: 20px 0;
+        padding: 20px 0;
         .face.face1 {
           transform: none !important;
           background: #ff0057;
-          .content{opacity: 1;}
+          .content {
+            opacity: 1;
+          }
         }
         .face.face2 {
           transform: none !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .dashBoard-wrapper {
+    background: none;
+    .container {
+      .card {
+        .face.face2 {
+          box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.8);
         }
       }
     }

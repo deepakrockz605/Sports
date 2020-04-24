@@ -328,12 +328,14 @@ function UserFinalForm ({ values, userLog, nextStep, prevStep }) {
               </>
             </div>
           </div>
-          <Button className="NEXT-btn" onClick={handleBack}>
-            EDIT
-          </Button>
-          <Button className="NEXT-btn" onClick={handleContinue}>
-            CONFIRM
-          </Button>
+          <div className="basicSubmitDetails">
+            <Button className="NEXT-btn" onClick={handleBack}>
+              EDIT
+            </Button>
+            <Button className="NEXT-btn" onClick={handleContinue}>
+              CONFIRM
+            </Button>
+          </div>
         </div>
       </div>
     </>
