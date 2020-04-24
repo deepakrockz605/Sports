@@ -67,8 +67,8 @@ class Login extends PureComponent {
         if (res.success) {
           toastr.success('Login Successfull !!!')
           this.setState({ isLoader: false })
-          // this.props.history.push('/dashboard')
-          window.location.href = '/dashboard'
+          this.props.history.push('/dashboard')
+          // window.location.href = '/dashboard'
         } else {
           toastr.error('Username or Password Incorrect !!!')
           this.setState({ isLoader: false })
